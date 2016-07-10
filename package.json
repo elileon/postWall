@@ -6,6 +6,10 @@
   "scripts": {
     "start": "http-server app -a localhost -p 8000 -c-1 -o & node-sass -w app/style.sass app/style.css"
   },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/elileon/postWall.git"
+  },
   "author": "Eli Leon",
   "license": "MIT"
 }
