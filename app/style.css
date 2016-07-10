@@ -1,0 +1,44 @@
+.filterByTag {
+  width: 80%;
+  margin: 30px 0px; }
+
+.comment {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 8px 0px; }
+  .comment .header {
+    background-color: rgba(118, 118, 118, 0.31);
+    padding: 0 5px 0px 10px;
+    line-height: 24px; }
+    .comment .header .glyphicon-edit, .comment .header .glyphicon-trash {
+      cursor: pointer;
+      line-height: 22px; }
+    .comment .header .glyphicon-edit {
+      margin-right: 5px; }
+    .comment .header input {
+      border-color: rgba(118, 118, 118, 0.31); }
+  .comment .tags {
+    padding: 0 5px 0px 10px; }
+    .comment .tags .close {
+      font-size: 1.6em;
+      line-height: 0.75; }
+    .comment .tags .tag {
+      margin: 0 3px 3px 0;
+      padding: 1px 5px;
+      font-size: 12px;
+      border-radius: 3px;
+      background-color: #fff;
+      display: inline-block;
+      line-height: 1.42857143;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid #ccc; }
+  .comment .commentText {
+    margin-top: 5px;
+    padding: 0 5px 0px 10px; }
+    .comment .commentText textarea {
+      width: 100%; }
+  .comment .actions .submitBtn {
+    margin: 5px 5px 5px 10px; }
+  .comment .actions .cancelBtn {
+    margin: 5px 0px 5px 10px; }

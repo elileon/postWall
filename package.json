@@ -1,0 +1,11 @@
+{
+  "name": "issues",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app/index.html",
+  "scripts": {
+    "start": "http-server app -a localhost -p 8000 -c-1 -o & node-sass -w app/style.sass app/style.css"
+  },
+  "author": "Eli Leon",
+  "license": "MIT"
+}

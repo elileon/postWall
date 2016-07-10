@@ -1,0 +1,12 @@
+<div>
+    <h1>Post Wall</h1>
+    <ui-select class="filterByTag" multiple ng-model="vm.selectedTags" theme="bootstrap" sortable="true">
+        <ui-select-match placeholder="Filter by tags">{{$item}}</ui-select-match>
+        <ui-select-choices repeat="tag in vm.tagsList | filter: $select.search">
+            {{tag}}
+        </ui-select-choices>
+    </ui-select>
+
+    <pw-comment ng-repeat="comment in vm.displayComments track by comment.id" comment="comment" available-tags="vm.tagsList" ng-if="comment.show"></pw-comment>
+    <pw-comment available-tags="vm.tagsList"></pw-comment>
+</div>

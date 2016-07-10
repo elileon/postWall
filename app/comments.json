@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Lorem Ipsum",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a cursus neque. Quisque sit amet diam vitae urna laoreet dictum et at erat. Nullam cursus ornare leo tincidunt mattis. Suspendisse potenti. Sed hendrerit vitae elit at tincidunt. Suspendisse fringilla libero ac eros lobortis tempus. <b>Aliquam ultricies</b> dictum massa vitae euismod. Aliquam ac porta risus. Praesent in commodo sapien.",
+    "tags": ["bug", "etc", "Lorem", "Ipsum"]
+  },
+  {
+    "id": 2,
+    "title": "Neque porro quisquam est qui dolorem",
+    "text": "Nulla <del>vehicula</del> at leo vitae consequat.",
+    "tags": []
+  },
+  {
+    "id": 3,
+    "title": "Hi title",
+    "text": "In hac habitasse platea <i>dictumst</i>. Donec leo dui, aliquam id sapien quis, condimentum sodales velit. Nulla eu cursus tellus. Curabitur vitae ex neque. Aenean id orci feugiat, tristique est ac, accumsan dui. Phasellus vehicula ligula et nulla tempus, in finibus mi egestas. ",
+    "tags": ["Tag"]
+  },
+  {
+    "id": 4,
+    "title": "This is an item",
+    "text": "This is a description of the item, it might describe a bug/task/comment, it can also display <a href=”www.google.com”>Links</a>",
+    "tags": ["bug", "issue", "etc"]
+  }
+]

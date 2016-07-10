@@ -1,0 +1,53 @@
+$paddingComment: 0 5px 0px 10px
+
+$headerBackgroundColor: rgba(118, 118, 118, 0.31)
+
+.filterByTag
+    width: 80%
+    margin: 30px 0px
+
+.comment
+    border: 1px solid #ccc
+    border-radius: 5px
+    margin: 8px 0px
+    .header
+        background-color: $headerBackgroundColor
+        padding: $paddingComment
+        line-height: 24px
+        .glyphicon-edit ,.glyphicon-trash
+            cursor: pointer
+            line-height: 22px
+        .glyphicon-edit
+            margin-right: 5px
+
+        input
+            border-color: $headerBackgroundColor
+
+    .tags
+        padding: $paddingComment
+        .close
+            font-size: 1.6em
+            line-height: 0.75
+        .tag
+            margin: 0 3px 3px 0
+            padding: 1px 5px
+            font-size: 12px
+            border-radius: 3px
+            background-color: #fff
+            display: inline-block
+            line-height: 1.42857143
+            vertical-align: middle
+            user-select: none
+            border: 1px solid #ccc
+    .commentText
+        margin-top: 5px
+        padding: $paddingComment
+
+        textarea
+            width: 100%
+
+    .actions
+        .submitBtn
+            margin: 5px 5px 5px 10px
+        .cancelBtn
+            margin: 5px 0px 5px 10px
