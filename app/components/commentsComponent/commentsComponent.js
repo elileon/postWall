@@ -40,13 +40,13 @@
         }
 
         $scope.$watch('vm.selectedTags', function (newValue, oldValue) {
-            if(oldValue != newValue && newValue){
+            if(newValue && oldValue !== newValue){
                 vm.displayComments = pwTagsFilter(vm.comments, newValue);
             }
         });
 
-        vm.updateComment = function (newComment) {
-            pwCommentsService.updateComment(newComment);
+        vm.updateComment = function (comment) {
+            pwCommentsService.updateComment(comment);
             updateData();
         };
         

@@ -1,32 +1,32 @@
 <div class="comment clearfix">
     <div class="header">
-        <div ng-if="displayMode">
-            <strong>{{::comment.title}}</strong>
-            <span class="glyphicon glyphicon-trash trashIcon pull-right" aria-hidden="true" ng-click="deleteComment()"></span>
-            <span class="glyphicon glyphicon-edit editIcon pull-right" aria-hidden="true" ng-click="editComment()"></span>
+        <div ng-if="vm.displayMode">
+            <strong>{{::vm.comment.title}}</strong>
+            <span class="glyphicon glyphicon-trash trashIcon pull-right" aria-hidden="true" ng-click="vm.deleteComment({commentId: vm.comment.id})"></span>
+            <span class="glyphicon glyphicon-edit editIcon pull-right" aria-hidden="true" ng-click="vm.editComment()"></span>
         </div>
-        <div ng-if="!displayMode">
-            <input placeholder="Title" ng-model="tempComment.title">
+        <div ng-if="!vm.displayMode">
+            <input placeholder="Title" ng-model="vm.tempComment.title">
         </div>
     </div>
     <div class="commentText">
-        <p ng-if="displayMode" ng-bind-html="::comment.text | unsafe"></p>
-        <textarea ng-if="!displayMode" ng-model="tempComment.text" placeholder="Description..."></textarea>
+        <p ng-if="vm.displayMode" ng-bind-html="::vm.comment.text | unsafe"></p>
+        <textarea ng-if="!vm.displayMode" ng-model="vm.tempComment.text" placeholder="Description..."></textarea>
     </div>
     <div class="tags">
-        <ui-select ng-if="!displayMode" multiple tagging tagging-label="(Add new tag)" ng-model="tempComment.tags" theme="bootstrap" sortable="true">
+        <ui-select ng-if="!vm.displayMode" multiple tagging tagging-label="(Add new tag)" ng-model="vm.tempComment.tags" theme="bootstrap" sortable="true">
             <ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
-            <ui-select-choices repeat="tag in availableTags | filter: $select.search">
+            <ui-select-choices repeat="tag in vm.availableTags | filter: $select.search">
                 {{tag}}
             </ui-select-choices>
         </ui-select>
 
-        <span ng-if="displayMode" class="tag" ng-repeat="tag in comment.tags track by $index">
+        <span ng-if="vm.displayMode" class="tag" ng-repeat="tag in vm.comment.tags track by $index">
             {{tag}}
         </span>
     </div>
-    <div class="actions" ng-if="!displayMode">
-        <button class="btn btn-success btn-sm pull-right submitBtn" ng-click="submit()">Submit</button>
-        <button class="btn btn-sm pull-right cancelBtn" ng-show="editMode" ng-click="cancel()">Cancel</button>
+    <div class="actions" ng-if="!vm.displayMode">
+        <button class="btn btn-success btn-sm pull-right submitBtn" ng-click="vm.submit()">Submit</button>
+        <button class="btn btn-sm pull-right cancelBtn" ng-show="vm.editMode" ng-click="vm.cancel()">Cancel</button>
     </div>
 </div>

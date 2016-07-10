@@ -8,69 +8,73 @@
     
     pwComment.directive('pwComment', function () {
         var directive = {
-            require: '^^pwComments',
             restrict: 'E',
             templateUrl: 'components/commentsComponent/commentComponent/commentTemplate.html',
-            scope: {
+            scope: {},
+            bindToController: {
                 comment: '=',
-                availableTags: '='
+                availableTags: '=',
+                deleteComment: '&',
+                updateComment: '&'
             },
-            link: function(scope, element, attrs, commentsController) {
-
-                function getDefaultComment(){
-                    return {
-                        title: "",
-                        text: "",
-                        tags: []
-                    }
-                }
-                function setMode(){
-                    if(!(scope.comment && scope.comment.title)){ //new comment
-                        scope.newMode = true;
-                        scope.displayMode = false;
-                        scope.tempComment = getDefaultComment();
-                    } else {
-                        scope.newMode = false;
-                        scope.displayMode = true;
-                    }
-                }
-
-                function init() {
-                    setMode();
-                }
-
-                scope.editComment = function () {
-                    scope.tempComment = angular.copy(scope.comment);
-                    scope.editMode = true;
-                    scope.displayMode = false;
-                };
-
-                scope.submit = function () {
-                    commentsController.updateComment(scope.tempComment);
-                    if(scope.newMode){
-                        scope.tempComment = getDefaultComment();
-                    }
-                };
-
-                scope.deleteComment = function () {
-                    commentsController.deleteComment(scope.comment.id);
-                };
-
-                scope.cancel = function(){
-                    scope.editMode = false;
-                    scope.displayMode = true;
-                };
-
-                scope.$watch('comment', function (newValue, oldValue) {
-                    if(newValue && newValue !== oldValue){
-                        setMode();
-                    }
-                });
-
-                init();
-            }
+            controllerAs: "vm",
+            controller: 'pwCommentController'
         };
         return directive;
     });
-    
+
+    pwComment.controller('pwCommentController', pwCommentController);
+
+    function pwCommentController($scope){
+        var vm = this;
+
+        function getDefaultComment(){
+            return {
+                title: "",
+                text: "",
+                tags: []
+            }
+        }
+
+        function setMode(){
+            if(!(vm.comment && vm.comment.title)){ //new comment
+                vm.newMode = true;
+                vm.displayMode = false;
+                vm.tempComment = getDefaultComment();
+            } else {
+                vm.newMode = false;
+                vm.displayMode = true;
+            }
+        }
+
+        function init() {
+            setMode();
+        }
+
+        vm.editComment = function () {
+            vm.tempComment = angular.copy(vm.comment);
+            vm.editMode = true;
+            vm.displayMode = false;
+        };
+
+        vm.submit = function () {
+            vm.updateComment({comment: vm.tempComment});
+            if(vm.newMode){
+                vm.tempComment = getDefaultComment();
+            }
+        };
+
+        vm.cancel = function(){
+            vm.editMode = false;
+            vm.displayMode = true;
+        };
+
+        $scope.$watch('vm.comment', function (newValue, oldValue) {
+            if(newValue && newValue !== oldValue){
+                setMode();
+            }
+        });
+
+        init();
+    }
 })();

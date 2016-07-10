@@ -7,6 +7,6 @@
         </ui-select-choices>
     </ui-select>
 
-    <pw-comment ng-repeat="comment in vm.displayComments track by comment.id" comment="comment" available-tags="vm.tagsList" ng-if="comment.show"></pw-comment>
-    <pw-comment available-tags="vm.tagsList"></pw-comment>
+    <pw-comment ng-repeat="comment in vm.displayComments track by comment.id" comment="comment" available-tags="vm.tagsList" update-comment="vm.updateComment(comment)" delete-comment="vm.deleteComment(commentId)" ng-if="comment.show"></pw-comment>
+    <pw-comment available-tags="vm.tagsList" update-comment="vm.updateComment(comment)" ></pw-comment>
 </div>

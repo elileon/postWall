@@ -45,17 +45,11 @@
             if(!newComment){
                 return;
             }
-            var existComment;
-            comments.some(function (comment, index) {
-                if(comment.id === newComment.id){
-                    comments[index] = newComment;
-                    existComment = true;
-                }
-                return existComment;
-            });
 
-            // add new comment
-            if(!existComment){
+            var index = getCommentIndexById(newComment.id);
+            if(index !== -1){
+                comments[index] = newComment;
+            } else { // add new comment
                 newComment.id = maxCommentId;
                 comments.push(newComment);
                 updateMaxCommentId();
@@ -64,18 +58,22 @@
         }
 
         function deleteComment(commentId){
-            var index = -1;
-            comments.some(function (comment, commentIndex) {
-                if(comment.id === commentId){
-                    index = commentIndex;
-                }
-                return index !== -1;
-            });
-            
+            var index = getCommentIndexById(commentId);
             if(index !== -1){
                 comments.splice(index, 1);
                 updateTagsList();
             }
+        }
+
+        function getCommentIndexById(commentId) {
+            var index = -1;
+            for(var i = 0; i < comments.length; i++){
+                if(comments[i].id === commentId){
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
 
         function updateTagsList() {
